@@ -76,8 +76,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .header-main h1 {
@@ -388,6 +395,188 @@
   background: #ffffff;
 }
 
+.evaluation-intro {
+  font-size: 1.15rem;
+  color: #34495e;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.evaluation-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.evaluation-image-item {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evaluation-image-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.evaluation-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f8f9fa;
+}
+
+.image-caption {
+  padding: 1.5rem;
+}
+
+.image-caption h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 0.75rem;
+}
+
+.image-caption p {
+  font-size: 1rem;
+  color: #34495e;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.survey-stats {
+  margin: 3rem 0;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.survey-stats h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #3498db;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card-warning {
+  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+  border-top-color: #f39c12;
+}
+
+.stat-card-danger {
+  background: linear-gradient(135deg, #ffe6e6 0%, #ffffff 100%);
+  border-top-color: #e74c3c;
+}
+
+.stat-percentage {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.stat-description {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.stat-note {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.evaluation-summary {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+}
+
+.evaluation-summary h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #3498db;
+}
+
+.summary-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2c3e50;
+}
+
+.summary-content>p {
+  margin-bottom: 2rem;
+}
+
+.summary-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.summary-point {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-point:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.summary-point strong {
+  color: #1e3c72;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
 .evaluation-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -689,6 +878,33 @@
 
   .history-grid {
     grid-template-columns: 1fr;
+  }
+
+  .evaluation-gallery {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .evaluation-summary {
+    padding: 1.5rem;
+  }
+
+  .evaluation-intro {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .survey-stats {
+    padding: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-percentage {
+    font-size: 2.5rem;
   }
 
   .strategies-section {
