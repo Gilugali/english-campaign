@@ -1,34 +1,61 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [activeTab, setActiveTab] = useState('introduction')
+
+  const tabs = [
+    { id: 'introduction', label: 'Introduction' },
+    { id: 'scale', label: 'Scale of Danger' },
+    { id: 'history', label: 'History' },
+    { id: 'purpose', label: 'Purpose & Strategy' },
+    { id: 'analysis', label: 'Analysis' },
+    { id: 'conclusion', label: 'Conclusion' },
+    { id: 'works-cited', label: 'Works Cited' }
+  ]
+
   return (
     <div className="app">
-      <div className="newspaper-header">
-        <div className="header-top">
-          <div className="date-line">English 112 Project 1 | December 2024</div>
-          <div className="header-accent"></div>
+      <header className="website-header">
+        <div className="header-content">
+          {/* <div className="header-top-bar">
+            <span className="project-badge">English 112 Project 1</span>
+            <span className="header-date">December 2024</span>
+          </div> */}
+          <div className="header-main">
+            <div className="header-icon-wrapper">
+              <span className="header-icon">🔒</span>
+            </div>
+            <h1>Think Before You Click</h1>
+            <p className="header-subtitle">A Rhetorical Analysis of the Pause Take9 Campaign</p>
+          </div>
         </div>
-        <header className="header">
-          <div className="header-decoration">
-            <span className="deco-line"></span>
-            <span className="header-icon">🔒</span>
-            <span className="deco-line"></span>
-          </div>
-          <h1>Think Before You Click: Cybersecurity Awareness Campaign</h1>
-          <div className="header-subtitle">
-            <span className="subtitle-line"></span>
-            <p className="subtitle">A Rhetorical Analysis of the Pause Take9 Campaign</p>
-            <span className="subtitle-line"></span>
-          </div>
-        </header>
-      </div>
+      </header>
+
+      <nav className="tabs-navigation">
+        <div className="tabs-container">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </nav>
 
       <main className="content">
+        {activeTab === 'introduction' && (
         <section className="section intro-section">
           <div className="section-header">
             <span className="section-number">01</span>
             <h2>Introduction</h2>
             <div className="section-underline"></div>
+          </div>
+          <div className="image-container">
+            <img src="/images/pic-1.jpeg" alt="Cybersecurity awareness illustration" className="section-image" />
           </div>
           <p className="lead-paragraph">
             The internet is part of everyday life for communication, learning, and entertainment. But as internet use grows, online threats like phishing, scams, and fraud are increasing.
@@ -40,7 +67,9 @@ function App() {
             The Think Before You Click cybersecurity campaign teaches people to pause and think before clicking links or opening attachments ("Pause Take9"). It promotes simple habits that help users protect themselves from scams and cyber threats. This analysis looks at how the Pause Take9 campaign website communicates its message and persuades users to adopt safer online behaviors.
           </p>
         </section>
+        )}
 
+        {activeTab === 'scale' && (
         <section className="section">
           <div className="section-header">
             <span className="section-number">02</span>
@@ -73,7 +102,9 @@ function App() {
             Given this reality, cybersecurity awareness has changed from a technical concern into an everyday necessity for all internet users. The average person must now navigate a digital world that criminals have designed to exploit hesitation, fear, and confusion. This includes college students, working professionals, and retirees. This is why campaigns like Think Before You Click are essential. They help ordinary people protect themselves in a digital environment that is becoming more hostile.
           </p>
         </section>
+        )}
 
+        {activeTab === 'history' && (
         <section className="section">
           <div className="section-header">
             <span className="section-number">03</span>
@@ -109,7 +140,9 @@ function App() {
             The website itself is accessible at PauseTake9.org ("Pause Take9"). It functions as the campaign's central hub and embodies principles of accessibility and clarity designed for a general audience. When visitors land on the site, they encounter a bold, minimalist design. The campaign's core message is prominently displayed: "9 Seconds for a Safer World." The site uses clean typography and simple illustrations. These include abstract images of computer screens and symbolic representations of digital awareness. The professional color scheme conveys both seriousness and approachability.
           </p>
         </section>
+        )}
 
+        {activeTab === 'purpose' && (
         <section className="section">
           <div className="section-header">
             <span className="section-number">04</span>
@@ -120,6 +153,10 @@ function App() {
           <div className="purpose-box">
             <h3>Pause Before You Click</h3>
             <p>Take a moment to check if a link or message looks suspicious.</p>
+          </div>
+
+          <div className="image-container">
+            <img src="/images/pic2.jpg" alt="Pause Take9 campaign visual" className="section-image" />
           </div>
 
           <p>
@@ -142,7 +179,9 @@ function App() {
             <p><strong>Key Insight:</strong> Knowing that billions of phishing emails are sent daily highlights why online safety education is necessary (Keepnet Labs).</p>
           </div>
         </section>
+        )}
 
+        {activeTab === 'analysis' && (
         <section className="section">
           <div className="section-header">
             <span className="section-number">05</span>
@@ -165,7 +204,9 @@ function App() {
             The website's greatest achievement may be cultural. It normalizes cybersecurity awareness as a routine practice for everyone, not just IT specialists or paranoid users. By making the 9 second pause feel natural and achievable, Pause Take9 attempts to shift how millions of people approach online interactions daily.
           </p>
         </section>
+        )}
 
+        {activeTab === 'conclusion' && (
         <section className="section conclusion-section">
           <div className="section-header">
             <span className="section-number">06</span>
@@ -182,7 +223,9 @@ function App() {
             By encouraging a nine second pause before clicking, downloading, or sharing, the campaign provides ordinary internet users with a practical tool ("Pause Take9"). This tool interrupts the manipulative tactics that cyber criminals rely upon. The website itself embodies principles of accessibility, credibility, and clarity. These make cybersecurity awareness achievable for audiences with no technical background. As cyber threats continue to evolve and become more sophisticated, campaigns like this become ever more valuable. They empower individuals to take concrete protective action for national resilience and personal security. Everyone connected to the internet has a role to play in cybersecurity defense. Pause Take9 reminds us that this role often begins with taking just nine seconds to think before we act.
           </p>
         </section>
+        )}
 
+        {activeTab === 'works-cited' && (
         <section className="section works-cited">
           <h2>Works Cited</h2>
           <ul className="works-cited-list">
@@ -203,7 +246,15 @@ function App() {
             </li>
           </ul>
         </section>
+        )}
       </main>
+
+      <footer className="website-footer">
+        <div className="footer-content">
+          <p>&copy; 2026 Mugisha Juste. All rights reserved.</p>
+          <p className="footer-subtitle">Cybersecurity Awareness Campaign Analysis</p>
+        </div>
+      </footer>
     </div>
   )
 }
